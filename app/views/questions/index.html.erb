@@ -1,0 +1,8 @@
+<h1>All Questions</h1>
+<p>(Though you should never need to see this page ... )</p>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= question.question_text %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<h1><%= @question.question_text %></h1>
+
+<ul>
+  <% @question.options.pluck(:option_text).each do |option| %>
+    <li><%= option %></li>
+  <% end %>
+</ul>
