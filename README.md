@@ -1,3 +1,7 @@
+![Build Status](https://codeship.com/projects/2bd614b0-10c9-0135-1491-122080d0a455/status?branch=master)
+![Code Climate](https://codeclimate.com/github/oliviaruizknott/group-decision-maker.png)
+![Coverage Status](https://coveralls.io/repos/oliviaruizknott/group-decision-maker/badge.png)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
