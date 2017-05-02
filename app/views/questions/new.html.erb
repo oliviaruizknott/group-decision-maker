@@ -1,0 +1,17 @@
+<div class="callout">
+  <%= form_for @question do |f| %>
+    <div>
+      <%= f.label :question_text, "ASK A QUESTION" %><br />
+      <%= f.text_field :question_text %>
+    </div>
+
+    <div>
+      <%= f.label :passcode, "CREATE A PASSCODE" %><br />
+      <%= f.number_field :passcode %>
+    </div>
+
+    <div>
+      <%= f.submit value="CREATE QUESTION"%>
+    </div>
+  <% end %>
+</div>
