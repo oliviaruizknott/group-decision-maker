@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: group_decision_maker_production
-  username: group_decision_maker
-  password: <%= ENV['group_decision_MAKER_DATABASE_PASSWORD'] %>
+  database: group-decision-maker_production
+  username: group-decision-maker
+  password: <%= ENV['GROUP_DECISION_MAKER_DATABASE_PASSWORD'] %>
