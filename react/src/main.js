@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 $(function() {
   ReactDOM.render(
-    <h1>Boo yaa</h1>,
+    <p>(React components can go in this div.)</p>,
     document.getElementById('app')
   );
 });
