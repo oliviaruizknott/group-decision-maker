@@ -37,6 +37,14 @@ gem 'pry-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'valid_attribute'
+  gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -50,3 +58,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
+end
