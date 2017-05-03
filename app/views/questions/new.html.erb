@@ -1,18 +1,20 @@
+<%= render 'layouts/flash_messages' %>
+
 <form class="new_question" id="new_question" action="/questions" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="4AjcIrlipxx0jhKtdlWE0IYASnPyTBeby4WC9+hWTCxYyX65iYUaW9Dtyo4UCVspkQchibEbkXYr1fRQOFDYXg==">
 
   <div class="form-tile">
     <label for="question_question_text">ASK A QUESTION</label><br>
-    <input placeholder="What should we watch?" type="text" name="question[question_text]" id="question_question_text">
+    <input placeholder="What should we watch?" value="<%= @question.question_text %>" type="text" name="question[question_text]" id="question_question_text">
   </div>
 
   <div class="form-tile">
     <label for="question_passcode">CREATE A PASSCODE</label><br>
-    <input placeholder="****" type="number" name="question[passcode]" id="question_passcode">
+    <input placeholder="****" value="<%= @question.passcode %>" type="number" name="question[passcode]" id="question_passcode">
   </div>
 
-  <div class="form-button row">
-    <input type="submit" name="commit" value="CREATE QUESTION" data-disable-with="CREATE QUESTION" id="create_question">
+  <div class="button-div">
+    <input type="submit" name="commit" value="CREATE QUESTION" data-disable-with="CREATE QUESTION" class="form-button">
   </div>
 </form>

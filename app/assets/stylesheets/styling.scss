@@ -1,0 +1,110 @@
+@import "settings";
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
+
+$blue: #1690ff;
+$placeholder-gray: #cccccc;
+$white: white;
+$lightgreen: lightgreen;
+
+*:focus {
+  outline: none;
+}
+
+h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  color: $blue;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+body {
+  background-color: $blue;
+}
+
+.form-tile {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  margin: 20px;
+  padding: 40px;
+  text-align: center;
+
+  label {
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input {
+    border: none;
+    color: $blue;
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: $placeholder-gray;
+    text-align: center;
+  }
+}
+
+.button-div {
+  text-align: center;
+
+  .form-button {
+    background-color: $lightgreen;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 30px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(.25, .8, 0.25, 1);
+  }
+
+  .form-button:hover {
+    box-shadow: none;
+  }
+}
+
+.question-header {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  left: 0;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.option-tile {
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  color: $blue;
+  font-size: 1.5em;
+  margin: 20px;
+  padding: 40px 20px;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+}
+
+.empty-div {
+  margin: 130px;
+}
+
+#app {
+  display: none;
+}
