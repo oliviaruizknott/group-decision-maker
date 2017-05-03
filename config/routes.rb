@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root "questions#new"
-  resources :questions
+  resources :questions do
+    resources :options
+  end
 end

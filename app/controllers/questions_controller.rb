@@ -1,10 +1,7 @@
 class QuestionsController < ApplicationController
-  def index
-    @questions = Question.all
-  end
-
   def show
     @question = Question.find(params[:id])
+    @options = @question.options
   end
 
   def new
@@ -15,7 +12,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params_create)
 
     if @question.save
-      redirect_to question_path(@question)
+      redirect_to question_options_path(@question.id)
     else
       flash.now[:alert] = @question.errors.full_messages.to_sentence
       render :new

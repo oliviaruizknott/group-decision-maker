@@ -9,3 +9,8 @@
 Question.create!(question_text: "Where should we eat?", passcode: "2346")
 Question.create!(question_text: "What should we watch?", passcode: "3495")
 Question.create!(question_text: "Where should we go for Spring Break?", passcode: "8898")
+
+Option.create!(option_text: "Chipotle", question_id: 1)
+Option.create!(option_text: "sweetgreen", question_id: 1)
+Option.create!(option_text: "Verts", question_id: 1)
+Option.create!(option_text: "Subway", question_id: 1)
