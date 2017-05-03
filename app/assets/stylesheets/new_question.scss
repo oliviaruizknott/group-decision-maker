@@ -1,6 +1,11 @@
 @import "settings";
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
 
+*:focus {
+  outline: none;
+  color: red;
+}
+
 body {
   background-color: #1690ff;
 }
@@ -24,19 +29,13 @@ body {
     border: none;
     margin: 10px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     color: #1690ff;
+  }
 
-    input::placeholder {
-      text-align: center;
-      color: lightgray;
-    }
-
-    input:focus {
-      border: none;
-      text-align: center;
-      color: #1690ff;
-    }
+  input::placeholder {
+    text-align: center;
+    color: #cccccc;
   }
 }
 
