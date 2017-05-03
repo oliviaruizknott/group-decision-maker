@@ -1,17 +1,18 @@
-<div class="callout">
-  <%= form_for @question do |f| %>
-    <div>
-      <%= f.label :question_text, "ASK A QUESTION" %><br />
-      <%= f.text_field :question_text %>
-    </div>
+<form class="new_question" id="new_question" action="/questions" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="4AjcIrlipxx0jhKtdlWE0IYASnPyTBeby4WC9+hWTCxYyX65iYUaW9Dtyo4UCVspkQchibEbkXYr1fRQOFDYXg==">
 
-    <div>
-      <%= f.label :passcode, "CREATE A PASSCODE" %><br />
-      <%= f.number_field :passcode %>
-    </div>
+  <div class="form-tile">
+    <label for="question_question_text">ASK A QUESTION</label><br>
+    <input placeholder="What should we watch?" type="text" name="question[question_text]" id="question_question_text">
+  </div>
 
-    <div>
-      <%= f.submit value="CREATE QUESTION"%>
-    </div>
-  <% end %>
-</div>
+  <div class="form-tile">
+    <label for="question_passcode">CREATE A PASSCODE</label><br>
+    <input placeholder="****" type="number" name="question[passcode]" id="question_passcode">
+  </div>
+
+  <div class="form-button row">
+    <input type="submit" name="commit" value="CREATE QUESTION" data-disable-with="CREATE QUESTION" id="create_question">
+  </div>
+</form>
