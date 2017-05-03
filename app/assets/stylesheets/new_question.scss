@@ -1,0 +1,57 @@
+@import "settings";
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
+
+*:focus {
+  outline: none;
+  color: red;
+}
+
+body {
+  background-color: #1690ff;
+}
+
+.form-tile {
+  border-radius: 5px;
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  text-align: center;
+
+  label {
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #1690ff;
+  }
+
+  input::placeholder {
+    text-align: center;
+    color: #cccccc;
+  }
+}
+
+.form-button {
+  font-size: 1em;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  border: none;
+}
+
+#create_question {
+  background-color: lightgreen;
+  border-radius: 100px;
+  border-style: none;
+  padding: 10px 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
