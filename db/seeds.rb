@@ -10,23 +10,23 @@ eat = Question.create!(text: "Where should we eat?", passcode: "2346")
 watch = Question.create!(text: "What should we watch?", passcode: "3495")
 spring_break = Question.create!(text: "Where should we go for Spring Break?", passcode: "8898")
 
-chipotle = Option.create!(text: "Chipotle", question_id: 1)
-sweetgreen = Option.create!(text: "sweetgreen", question_id: 1)
-verts = Option.create!(text: "Verts", question_id: 1)
-subway = Option.create!(text: "Subway", question_id: 1)
+chipotle = Option.create!(text: "Chipotle", question: eat)
+sweetgreen = Option.create!(text: "sweetgreen", question: eat)
+verts = Option.create!(text: "Verts", question: eat)
+subway = Option.create!(text: "Subway", question: eat)
 
 hitchhiker = Option.create!(text: "The Hitchhiker’s Guide to the Galaxy", question_id: 2)
-get_out = Option.create!(text: "Get Out", question_id: 2)
-ghost = Option.create!(text: "Ghost in the Shell", question_id: 2)
-lego_movie = Option.create!(text: "The Lego Movie", question_id: 2)
-beauty_and_beast = Option.create!(text: "Beauty and the Beast", question_id: 2)
-casablanca = Option.create!(text: "Casablanca", question_id: 2)
+get_out = Option.create!(text: "Get Out", question: watch)
+ghost = Option.create!(text: "Ghost in the Shell", question: watch)
+lego_movie = Option.create!(text: "The Lego Movie", question: watch)
+beauty_and_beast = Option.create!(text: "Beauty and the Beast", question: watch)
+casablanca = Option.create!(text: "Casablanca", question: watch)
 
-icecland = Option.create!(text: "Iceland", question_id: 3)
-kenya = Option.create!(text: "Kenya", question_id: 3)
-north_korea = Option.create!(text: "North Korea", question_id: 3)
+icecland = Option.create!(text: "Iceland", question: spring_break)
+kenya = Option.create!(text: "Kenya", question: spring_break)
+north_korea = Option.create!(text: "North Korea", question: spring_break)
 
-scores = [-2, -1, 1, 2]
+scores = [-3, -1, 1, 2]
 
 # 5 responses to "Where should we eat?"
 5.times do
