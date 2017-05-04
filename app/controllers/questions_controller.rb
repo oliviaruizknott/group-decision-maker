@@ -22,6 +22,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params_create
-    params.require(:question).permit(:question_text, :passcode)
+    params.require(:question).permit(:text, :passcode)
   end
 end

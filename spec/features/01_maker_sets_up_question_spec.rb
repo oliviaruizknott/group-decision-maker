@@ -31,7 +31,7 @@ feature "Question maker receives error messages" do
     fill_in "CREATE A PASSCODE", with: "9876"
     click_button "CREATE QUESTION"
 
-    expect(page).to have_content "Error: Question text can't be blank"
+    expect(page).to have_content "Error: Text can't be blank"
   end
 
   scenario "when submitting form without passcode" do
