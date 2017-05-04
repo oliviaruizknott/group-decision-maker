@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502150805) do
+ActiveRecord::Schema.define(version: 20170504014530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "options", force: :cascade do |t|
-    t.string   "option_text", null: false
+    t.string   "text",        null: false
+    t.string   "notes"
     t.integer  "question_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -24,17 +25,18 @@ ActiveRecord::Schema.define(version: 20170502150805) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "question_text", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "passcode",      null: false
-  end
-
-  create_table "votes", force: :cascade do |t|
-    t.string   "vote_text",  null: false
-    t.integer  "score",      null: false
+    t.string   "text",       null: false
+    t.string   "passcode",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.integer  "score",      null: false
+    t.integer  "option_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_id"], name: "index_responses_on_option_id", using: :btree
   end
 
 end
