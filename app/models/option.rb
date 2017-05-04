@@ -6,9 +6,11 @@ class Option < ApplicationRecord
 
   validates :text, presence: true
 
-  def score
-    all_scores = responses.pluck(:score)
-    all_scores.sum
+  def all_scores
+    responses.pluck(:score)
   end
 
+  def score
+    all_scores.sum
+  end
 end
