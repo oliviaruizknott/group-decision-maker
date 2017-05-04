@@ -1,5 +1,3 @@
-require_relative 'option'
-
 class Question < ApplicationRecord
   has_many :options
 
