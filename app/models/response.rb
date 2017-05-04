@@ -1,4 +1,5 @@
 class Response < ApplicationRecord
   belongs_to :option
-  belongs_to :vote
+
+  validates :score, presence: true
 end

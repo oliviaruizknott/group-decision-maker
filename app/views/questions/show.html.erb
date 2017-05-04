@@ -1,9 +1,9 @@
-<h1><%= @question.question_text %></h1>
+<h1><%= @question.text %></h1>
 <h3>THIS IS THE PAGE PEOPLE WILL GET A LINK TO!</h3>
 <p>Eventually, show only one option at a time.</p>
 
 <ul>
-  <% @question.options.pluck(:option_text).each do |option| %>
+  <% @question.options.pluck(:text).each do |option| %>
     <li><%= option %></li>
   <% end %>
 </ul>
