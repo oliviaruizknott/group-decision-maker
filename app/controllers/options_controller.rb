@@ -6,9 +6,10 @@ class OptionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:question_id])
     @option = Option.find(params[:id])
+    @question = @option.question
     @options = @question.options
+
     @response = Response.new
     @votes = [
       ["No. Absolutely not.", -3],

@@ -8,7 +8,7 @@
 <h1>LINK TO QUESTION</h1>
 <h1>group-decision-maker.herokuapp.com/<%= params[:id] %></h1>
 
-<h1><%= link_to "BEGIN ⟶", question_option_path(@question, @option) %></h1>
+<h1><%= link_to "BEGIN ⟶", option_path(@option) %></h1>
 
 <ul>
   <% @options.pluck(:text).each do |option| %>

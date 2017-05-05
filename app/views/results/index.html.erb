@@ -1,0 +1,20 @@
+<div class="question-header small-12 medium-8 large-6 small-centered columns row">
+  <h1>QUESTION</h1>
+  <h2><%= @question.text %></h2>
+</div>
+
+<div class="empty-div"></div>
+
+<h1>RESULTS:</h1>
+<h1><%= @question.result %></h1>
+
+<% @question.result_details.each do |option, score| %>
+  <h4><%= option %>: <%= score %></h4>
+<% end %>
+
+
+<ul>
+  <% @question.options.each do |option| %>
+    <li><%= option.text %>, <%= option.all_scores %> </li>
+  <% end %>
+</ul>

@@ -7,7 +7,7 @@
 
 <h3><%= @option.text %></h3>
 
-<form class="new_response" id="new_response" action="/questions/<%= @question.id %>/options/<%= @option.id %>/responses" accept-charset="UTF-8" method="post">
+<form class="new_response" id="new_response" action="/options/<%= @option.id %>/responses" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="rgW1Ed2V2xnqMrHGIVRBphFnyRcel2SUmaizDMB35v0WxBeK7XJmXk5RaeVDCJ5fBmCi7V3A4nl5+MWrEHFyjw==">
 
