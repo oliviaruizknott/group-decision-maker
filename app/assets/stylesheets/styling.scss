@@ -4,7 +4,7 @@
 $blue: #1690ff;
 $placeholder-gray: #cccccc;
 $white: white;
-$lightgreen: lightgreen;
+$lightgreen: #b8e986;
 
 *:focus {
   outline: none;
@@ -21,6 +21,14 @@ h2 {
   color: $blue;
   font-size: 1.5em;
   text-align: center;
+}
+
+a {
+  color: $white;
+
+  a:hover {
+    color: $lightgreen;
+  }
 }
 
 body {
@@ -68,6 +76,7 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: 1em;
     font-weight: bold;
+    margin-bottom: 30px;
     padding: 10px 30px;
     text-align: center;
     transition: all 0.3s cubic-bezier(.25, .8, 0.25, 1);

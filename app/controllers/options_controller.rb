@@ -5,6 +5,19 @@ class OptionsController < ApplicationController
     @option = Option.new
   end
 
+  def show
+    @question = Question.find(params[:question_id])
+    @option = Option.find(params[:id])
+    @options = @question.options
+    @response = Response.new
+    @votes = [
+      ["No. Absolutely not.", -3],
+      ["Meh. Fine.", -1],
+      ["Sure! Sounds good.", 1],
+      ["YES PLEASE!!!", 2]
+    ]
+  end
+
   def create
     @question = Question.find(params[:question_id])
     @option = Option.new(option_params_create)

@@ -1,9 +1,17 @@
-<h1><%= @question.text %></h1>
-<h3>THIS IS THE PAGE PEOPLE WILL GET A LINK TO!</h3>
-<p>Eventually, show only one option at a time.</p>
+<div class="question-header small-12 medium-8 large-6 small-centered columns row">
+  <h1>QUESTION</h1>
+  <h2><%= @question.text %></h2>
+</div>
+
+<div class="empty-div"></div>
+
+<h1>LINK TO QUESTION</h1>
+<h1>group-decision-maker.herokuapp.com/<%= params[:id] %></h1>
+
+<h1><%= link_to "BEGIN ⟶", question_option_path(@question, @option) %></h1>
 
 <ul>
-  <% @question.options.pluck(:text).each do |option| %>
+  <% @options.pluck(:text).each do |option| %>
     <li><%= option %></li>
   <% end %>
 </ul>
