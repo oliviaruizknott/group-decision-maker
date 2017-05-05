@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @options = @question.options
+    @option = @options.first
   end
 
   def new

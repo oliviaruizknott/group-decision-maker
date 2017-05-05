@@ -1,0 +1,39 @@
+<div class="question-header small-12 medium-8 large-6 small-centered columns row">
+  <h1>QUESTION</h1>
+  <h2><%= @question.text %></h2>
+</div>
+
+<div class="empty-div"></div>
+
+<h3><%= @option.text %></h3>
+
+<form class="new_response" id="new_response" action="/questions/<%= @question.id %>/options/<%= @option.id %>/responses" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="rgW1Ed2V2xnqMrHGIVRBphFnyRcel2SUmaizDMB35v0WxBeK7XJmXk5RaeVDCJ5fBmCi7V3A4nl5+MWrEHFyjw==">
+
+  <input type="hidden" name="response[score]" value="">
+
+  <div class="form-tile">
+    <input type="radio" value="-3" name="response[score]" id="response_score_-3">
+    <label for="response_score_-3">No. Absolutely not.</label>
+  </div>
+
+  <div class="form-tile">
+    <input type="radio" value="-1" name="response[score]" id="response_score_-1">
+    <label for="response_score_-1">Meh. Fine.</label>
+  </div>
+
+  <div class="form-tile">
+    <input type="radio" value="1" name="response[score]" id="response_score_1">
+    <label for="response_score_1">Sure! Sounds good.</label>
+  </div>
+
+  <div class="form-tile">
+    <input type="radio" value="2" name="response[score]" id="response_score_2">
+    <label for="response_score_2">YES PLEASE!!!</label>
+  </div>
+
+  <div class="button-div">
+    <input type="submit" name="commit" value="SUBMIT VOTE" data-disable-with="SUBMIT VOTE" class="form-button">
+  </div>
+</form>
