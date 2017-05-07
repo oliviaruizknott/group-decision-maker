@@ -1,7 +1,7 @@
 @import "settings";
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
 
-$blue: #1690ff;
+$blue: #4990e2;
 $placeholder-gray: #cccccc;
 $white: white;
 $lightgreen: #b8e986;
@@ -51,10 +51,10 @@ body {
   }
 
   input {
+    background-color: $white;
     border: none;
     color: $blue;
     font-size: 1.5em;
-    margin: 10px;
     text-align: center;
     width: 100%;
   }
@@ -68,7 +68,7 @@ body {
 .button-div {
   text-align: center;
 
-  .form-button {
+  .green-button {
     background-color: $lightgreen;
     border: none;
     border-radius: 100px;
@@ -82,7 +82,7 @@ body {
     transition: all 0.3s cubic-bezier(.25, .8, 0.25, 1);
   }
 
-  .form-button:hover {
+  .green-button:hover {
     box-shadow: none;
   }
 }
@@ -108,6 +108,35 @@ body {
   position: relative;
   text-align: center;
   z-index: 0;
+}
+
+.tooltip {
+  background-color: $placeholder-gray;
+  border-radius: 0;
+  color: $white;
+  font-size: 80%;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 50% !important;
+  padding: 15px 5px 5px;
+  position: relative;
+  top: 0;
+  z-index: 10;
+}
+
+.tooltip::before {
+  content: "";
+  border: inset 0.75rem;
+  border-color: transparent transparent $placeholder-gray;
+  border-bottom-style: solid;
+  border-top-width: 0;
+  bottom: 100%;
+  display: block;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 0;
 }
 
 .empty-div {

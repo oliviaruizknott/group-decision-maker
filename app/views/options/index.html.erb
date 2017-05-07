@@ -9,6 +9,7 @@
   <% @options.each do |option| %>
     <div class="option-tile">
       <%= option.text %>
+      <p><%= option.notes %></p>
     </div>
   <% end %>
 <% end %>
@@ -21,11 +22,18 @@
 
   <div class="form-tile">
     <input placeholder="Enter an Option" value="<%= @option.text %>" type="textarea" name="option[text]" id="option_text"><br>
+    <input placeholder="Add a note" value="<%= @option.notes %>" type="textarea" name="option[notes]" id="option_notes">
   </div>
 
-  <div class="button-div">
-    <input type="submit" name="commit" value="CREATE OPTION" data-disable-with="CREATE OPTION" class="form-button">
+  <div class="form-tile">
+    <input type="submit" name="commit" value="+" data-disable-with="+">
   </div>
 </form>
 
-<h1><%= link_to "LAUNCH QUESTION", question_path(@question) %></h1>
+<% if @options.count < 2 %>
+  <div class="tooltip">
+    <h1>ENTER AT LEAST TWO OPTIONS.</h1>
+  </div>
+<% else %>
+  <h1><%= link_to "LAUNCH QUESTION", question_path(@question) %></h1>
+<% end %>

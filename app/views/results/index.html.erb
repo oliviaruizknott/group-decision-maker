@@ -5,16 +5,36 @@
 
 <div class="empty-div"></div>
 
-<h1>RESULTS:</h1>
-<h1><%= @question.result %></h1>
+<% if @question.status == "open" %>
+  <p>Once the poll is closed, you’ll see the results here.</p>
 
-<% @question.result_details.each do |option, score| %>
-  <h4><%= option %>: <%= score %></h4>
-<% end %>
+  <%= render 'layouts/flash_messages' %>
 
+  <form class="edit_question" id="edit_question_<%= @question.id %>" action="/questions/<%= @question.id %>" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="ESA4PmO4NwqRRmoCEWRbxrgwJEecAXrBieQ9ARvAsp2p4ZqlU1+KTTUlsiFzOIQ/rzdPvd9W/CxptEumy8Ym7w==">
 
-<ul>
-  <% @question.options.each do |option| %>
-    <li><%= option.text %>, <%= option.all_scores %> </li>
+    <div class="form-tile">
+      <label for="question_passcode">ENTER PASSCODE</label><br>
+      <input value="" type="number" name="question[passcode]" id="question_passcode">
+    </div>
+
+    <div class="button-div">
+      <input type="submit" name="commit" value="CLOSE QUESTION" data-disable-with="CLOSE QUESTION" class="green-button">
+    </div>
+  </form>
+<% else %>
+  <h1>RESULTS:</h1>
+  <h1><%= @question.result %></h1>
+
+  <% @question.result_details.each do |option, score| %>
+    <h4><%= option %>: <%= score %></h4>
   <% end %>
-</ul>
+
+  <ul>
+    <% @question.options.each do |option| %>
+      <li><%= option.text %>, <%= option.all_scores %> </li>
+    <% end %>
+  </ul>
+<% end %>

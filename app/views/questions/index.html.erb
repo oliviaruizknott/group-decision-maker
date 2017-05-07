@@ -3,6 +3,6 @@
 
 <ul>
   <% @questions.each do |question| %>
-    <li><%= question.text %></li>
+    <li><%= question.text %> (<%= question.id %>)</li>
   <% end %>
 </ul>

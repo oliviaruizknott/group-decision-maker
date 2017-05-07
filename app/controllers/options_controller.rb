@@ -36,6 +36,6 @@ class OptionsController < ApplicationController
   private
 
   def option_params_create
-    params.require(:option).permit(:text)
+    params.require(:option).permit(:text, :notes)
   end
 end
