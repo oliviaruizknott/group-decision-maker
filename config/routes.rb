@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :options, only: [:index, :new, :create]
     resources :results, only: [:index]
+    resources :details, only: [:index]
+    resources :thanks, only: [:index]
   end
 
   resources :options, only: [:show, :edit, :update, :destroy] do

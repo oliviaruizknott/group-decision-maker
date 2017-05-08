@@ -1,39 +1,48 @@
-<div class="question-header small-12 medium-8 large-6 small-centered columns row">
-  <h1>QUESTION</h1>
+<div class="topbar small-12 medium-8 large-6 small-centered columns row">
   <h2><%= @question.text %></h2>
 </div>
 
-<div class="empty-div"></div>
+<div class="spacer-small"></div>
 
-<h3><%= @option.text %></h3>
+<div class="tile">
+  <h2>Option:</h2>
+  <h1><%= @option.text %></h1>
+  <% if @option.notes %>
+    <p><%= @option.notes %></p>
+  <% end %>
 
-<form class="new_response" id="new_response" action="/options/<%= @option.id %>/responses" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="✓">
-  <input type="hidden" name="authenticity_token" value="rgW1Ed2V2xnqMrHGIVRBphFnyRcel2SUmaizDMB35v0WxBeK7XJmXk5RaeVDCJ5fBmCi7V3A4nl5+MWrEHFyjw==">
+  <br>
 
-  <input type="hidden" name="response[score]" value="">
+  <form class="new_response" id="new_response" action="/options/<%= @option.id %>/responses" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="rgW1Ed2V2xnqMrHGIVRBphFnyRcel2SUmaizDMB35v0WxBeK7XJmXk5RaeVDCJ5fBmCi7V3A4nl5+MWrEHFyjw==">
 
-  <div class="form-tile">
-    <input type="radio" value="-3" name="response[score]" id="response_score_-3">
-    <label for="response_score_-3">No. Absolutely not.</label>
-  </div>
+    <input type="hidden" name="response[score]" value="">
 
-  <div class="form-tile">
-    <input type="radio" value="-1" name="response[score]" id="response_score_-1">
-    <label for="response_score_-1">Meh. Fine.</label>
-  </div>
+    <div class="response" id="please-no">
+      <input type="radio" value="-3" name="response[score]" id="response_score_-3">
+      <h3><label for="response_score_-3">Please no!</label></h3>
+    </div>
 
-  <div class="form-tile">
-    <input type="radio" value="1" name="response[score]" id="response_score_1">
-    <label for="response_score_1">Sure! Sounds good.</label>
-  </div>
+    <div class="response" id="rather-not">
+      <input type="radio" value="-1" name="response[score]" id="response_score_-1">
+      <h3><label for="response_score_-1">I’d rather not.</label></h3>
+    </div>
 
-  <div class="form-tile">
-    <input type="radio" value="2" name="response[score]" id="response_score_2">
-    <label for="response_score_2">YES PLEASE!!!</label>
-  </div>
+    <div class="response" id="sure">
+      <input type="radio" value="1" name="response[score]" id="response_score_1">
+      <h3><label for="response_score_1">Sure!</label></h3>
+    </div>
 
-  <div class="button-div">
-    <input type="submit" name="commit" value="NEXT OPTION" data-disable-with="NEXT OPTION" class="green-button">
-  </div>
-</form>
+    <div class="response" id="please-yes">
+      <input type="radio" value="2" name="response[score]" id="response_score_2">
+      <h3><label for="response_score_2">Please yes!!!</label></h3>
+    </div>
+
+    <br>
+
+    <div class="center">
+      <h2><input type="submit" name="commit" value="Next Option" data-disable-with="Next Option" class="button"></h2>
+    </div>
+  </form>
+</div>

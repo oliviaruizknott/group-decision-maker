@@ -13,7 +13,7 @@ class ResponsesController < ApplicationController
 
     if @response.save
       if @option == @last_option
-        redirect_to question_results_path(@question)
+        redirect_to question_thanks_path(@question)
       else
         redirect_to "/options/#{@next_option.id}"
       end

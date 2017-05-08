@@ -4,17 +4,18 @@
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="4AjcIrlipxx0jhKtdlWE0IYASnPyTBeby4WC9+hWTCxYyX65iYUaW9Dtyo4UCVspkQchibEbkXYr1fRQOFDYXg==">
 
-  <div class="form-tile">
-    <label for="question_text">ASK A QUESTION</label><br>
-    <input placeholder="What should we do?" value="<%= @question.text %>" type="text" name="question[text]" id="question_text">
+  <div class="tile">
+    <h2><label for="question_text">ASK A QUESTION</label></h2>
+    <h1><input placeholder="What should we do?" value="<%= @question.text %>" type="textarea" name="question[text]" id="question_text"></h1>
+    <!-- <h1><textarea placeholder="What should we do?" value="<%= @question.text %>" name="question[text]" form="new_question" id="question_text"></textarea></h1> -->
   </div>
 
-  <div class="form-tile">
-    <label for="question_passcode">CREATE A PASSCODE</label><br>
-    <input placeholder="••••" value="<%= @question.passcode %>" type="number" name="question[passcode]" id="question_passcode">
+  <div class="tile">
+    <h2><label for="question_passcode">CREATE A PASSCODE</label></h2>
+    <h1><input placeholder="• • • •" value="<%= @question.passcode %>" type="number" name="question[passcode]" id="question_passcode"></h1>
   </div>
 
-  <div class="button-div">
-    <input type="submit" name="commit" value="CREATE QUESTION" data-disable-with="CREATE QUESTION" class="green-button">
+  <div class="center">
+    <h2><input type="submit" name="commit" value="CREATE QUESTION" data-disable-with="CREATE QUESTION" class="button"></h2>
   </div>
 </form>

@@ -1,147 +1,190 @@
 @import "settings";
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
 
+$black: #000000;
 $blue: #4990e2;
+$gray: #808080;
+$lightgreen: #b8e986;
+$orange: #FFB26F;
 $placeholder-gray: #cccccc;
 $white: white;
-$lightgreen: #b8e986;
 
-*:focus {
-  outline: none;
-}
-
-h1 {
-  font-family: 'Space Mono', monospace;
-  font-size: 1em;
-  font-weight: bold;
-  text-align: center;
-}
-
-h2 {
-  color: $blue;
-  font-size: 1.5em;
-  text-align: center;
-}
-
-a {
-  color: $white;
-
-  a:hover {
-    color: $lightgreen;
-  }
-}
+$shadow: 0 0 1em 0 rgba(0,0,0,.5);
 
 body {
   background-color: $blue;
 }
 
-.form-tile {
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 5px;
-  margin: 20px;
-  padding: 40px;
-  text-align: center;
-
-  label {
-    font-family: 'Space Mono', monospace;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  input {
-    background-color: $white;
-    border: none;
-    color: $blue;
-    font-size: 1.5em;
-    text-align: center;
-    width: 100%;
-  }
-
-  input::placeholder {
-    color: $placeholder-gray;
-    text-align: center;
-  }
+h1 {
+  color: $blue;
+  font-size: 1.5em;
+  margin: 0.5em;
 }
 
-.button-div {
-  text-align: center;
-
-  .green-button {
-    background-color: $lightgreen;
-    border: none;
-    border-radius: 100px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    font-family: 'Space Mono', monospace;
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 30px;
-    padding: 10px 30px;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(.25, .8, 0.25, 1);
-  }
-
-  .green-button:hover {
-    box-shadow: none;
-  }
+h2 {
+  font-family: 'Space Mono', monospace;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.5em;
+  text-transform: uppercase;
 }
 
-.question-header {
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p {
+  color: $gray;
+  line-height: 1.25;
+  margin: auto;
+  max-width: 75%;
+}
+
+a {
+  color: $placeholder-gray;
+  text-transform: uppercase;
+}
+
+a:hover, a:focus {
+  color: $black;
+}
+
+*:focus {
+  outline: none;
+}
+
+input {
+  background-color: $white;
+  border: 0;
+  cursor: inherit;
+  text-align: center;
+  width: 100%;
+}
+
+input::placeholder {
+  color: $placeholder-gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+  cursor: inherit;
+}
+
+.tile {
+  background-color: $white;
+  border-radius: .25em;
+  box-shadow: $shadow;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.topbar {
   background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: $shadow;
   left: 0;
-  padding: 20px;
+  padding: 1.5em;
   position: fixed;
+  text-align: center;
   width: 100%;
   z-index: 1;
 }
 
-.option-tile {
-  background-color: $white;
-  border-radius: 5px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  color: $blue;
-  font-size: 1.5em;
-  margin: 20px;
-  padding: 40px 20px;
-  position: relative;
+.spacer {
+  margin: 10em;
+}
+
+.spacer-small {
+  margin: 7.5em;
+}
+
+.center {
   text-align: center;
-  z-index: 0;
 }
 
-.tooltip {
+.hidden {
+  display: none;
+}
+
+.clickable {
+  color: $placeholder-gray;
+  cursor: pointer;
+}
+
+.clickable:hover, .clickable:focus {
+  color: $black;
+}
+
+.button {
+  background-color: $lightgreen;
+  border: 0;
+  border-radius: 100px;
+  box-shadow: $shadow;
+  color: inherit;
+  font-size: 1em;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  text-transform: inherit;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: auto;
+
+  a {
+    color: inherit;
+  }
+
+  a:hover, a:focus {
+    color: $black;
+  }
+}
+
+.button:hover {
+  background-color: $lightgreen;
+  box-shadow: none;
+  color: inherit;
+}
+
+.tip {
   background-color: $placeholder-gray;
-  border-radius: 0;
-  color: $white;
-  font-size: 80%;
-  margin: auto;
-  margin-top: 40px;
-  max-width: 50% !important;
-  padding: 15px 5px 5px;
-  position: relative;
-  top: 0;
-  z-index: 10;
+  box-shadow: $shadow;
+  font-size: 0.75em;
+  margin: 1em auto;
+  padding: 1em;
+  text-align: center;
+  width: 50%;
 }
 
-.tooltip::before {
-  content: "";
-  border: inset 0.75rem;
-  border-color: transparent transparent $placeholder-gray;
-  border-bottom-style: solid;
-  border-top-width: 0;
-  bottom: 100%;
-  display: block;
-  height: 0;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 0;
+.response {
+  border-top: 1px solid $placeholder-gray;
+  padding: 2em;
 }
 
-.empty-div {
-  margin: 130px;
+#score {
+  color: $orange;
 }
+
+#please-no {
+  cursor: image-url("please_no.png") 10 10, default;
+}
+
+#rather-not {
+  cursor: image-url("rather_not.png") 10 10, default;
+}
+
+#sure {
+  cursor: image-url("sure.png") 10 10, default;
+}
+
+#please-yes {
+  cursor: image-url("please_yes.png") 10 10, default;
+}
+
 
 #app {
   display: none;

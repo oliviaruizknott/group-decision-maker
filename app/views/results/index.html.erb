@@ -1,40 +1,47 @@
-<div class="question-header small-12 medium-8 large-6 small-centered columns row">
-  <h1>QUESTION</h1>
-  <h2><%= @question.text %></h2>
-</div>
-
-<div class="empty-div"></div>
-
 <% if @question.status == "open" %>
-  <p>Once the poll is closed, you’ll see the results here.</p>
+  <div class="tile">
+    <h2>Close Question</h2>
+    <h1><%= @question.text %></h1>
 
-  <%= render 'layouts/flash_messages' %>
+    <%= render 'layouts/flash_messages' %>
 
-  <form class="edit_question" id="edit_question_<%= @question.id %>" action="/questions/<%= @question.id %>" accept-charset="UTF-8" method="post">
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="authenticity_token" value="ESA4PmO4NwqRRmoCEWRbxrgwJEecAXrBieQ9ARvAsp2p4ZqlU1+KTTUlsiFzOIQ/rzdPvd9W/CxptEumy8Ym7w==">
+    <form class="edit_question" id="edit_question_<%= @question.id %>" action="/questions/<%= @question.id %>" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="authenticity_token" value="ESA4PmO4NwqRRmoCEWRbxrgwJEecAXrBieQ9ARvAsp2p4ZqlU1+KTTUlsiFzOIQ/rzdPvd9W/CxptEumy8Ym7w==">
 
-    <div class="form-tile">
-      <label for="question_passcode">ENTER PASSCODE</label><br>
-      <input value="" type="number" name="question[passcode]" id="question_passcode">
-    </div>
+      <br>
 
-    <div class="button-div">
-      <input type="submit" name="commit" value="CLOSE QUESTION" data-disable-with="CLOSE QUESTION" class="green-button">
-    </div>
-  </form>
+      <div>
+        <h2><label for="question_passcode">Enter Passcode</label></h2>
+        <h1><input placeholder="• • • •" value="" type="number" name="question[passcode]" id="question_passcode"></h1>
+      </div>
+
+      <div class="center">
+        <h2><input type="submit" name="commit" value="Close Question" data-disable-with="Close Question" class="button orange"></h2>
+      </div>
+      <h2><%= link_to "Return to Question", question_path(@question) %></h2>
+    </form>
+  </div>
 <% else %>
-  <h1>RESULTS:</h1>
-  <h1><%= @question.result %></h1>
+  <div class="tile">
+    <h2>Question Results</h2>
+    <h1><%= @question.text %></h1>
 
-  <% @question.result_details.each do |option, score| %>
-    <h4><%= option %>: <%= score %></h4>
-  <% end %>
+    <br>
 
-  <ul>
-    <% @question.options.each do |option| %>
-      <li><%= option.text %>, <%= option.all_scores %> </li>
+    <% if @question.result.length < 2 %>
+      <h2>Winner</h2>
+      <h1><%= @question.result[0] %></h1>
+    <% else %>
+      <h2>Tie</h2>
+      <% @question.result.each do |winner| %>
+        <h1><%= winner %></h1>
+      <% end %>
     <% end %>
-  </ul>
+
+    <br>
+
+    <h2><%= link_to "See Details", question_details_path(@question) %></h2>
+  </div>
 <% end %>

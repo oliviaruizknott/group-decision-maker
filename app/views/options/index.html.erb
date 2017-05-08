@@ -1,15 +1,17 @@
-<div class="question-header small-12 medium-8 large-6 small-centered columns row">
-  <h1>QUESTION</h1>
-  <h2><%= @question.text %></h2>
+<div class="topbar small-12 medium-8 large-6 small-centered columns row">
+  <h2>QUESTION</h2>
+  <h1><%= @question.text %></h1>
 </div>
 
-<div class="empty-div"></div>
+<div class="spacer"></div>
 
 <% if @options %>
   <% @options.each do |option| %>
-    <div class="option-tile">
-      <%= option.text %>
-      <p><%= option.notes %></p>
+    <div class="tile">
+      <h1><%= option.text %></h1>
+      <% if option.notes %>
+        <p><%= option.notes %></p>
+      <% end %>
     </div>
   <% end %>
 <% end %>
@@ -20,20 +22,22 @@
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="OfVVskwfI/bkUd0zp6qIasx6sFSVWK1wdLUABoFEMsqBNPcpfPiesUAyBRDF9leT233brtYPK52U5XahUUKmuA==">
 
-  <div class="form-tile">
-    <input placeholder="Enter an Option" value="<%= @option.text %>" type="textarea" name="option[text]" id="option_text"><br>
-    <input placeholder="Add a note" value="<%= @option.notes %>" type="textarea" name="option[notes]" id="option_notes">
+  <div class="tile">
+    <h1><input placeholder="Enter an Option" value="<%= @option.text %>" type="textarea" name="option[text]" id="option_text"></h1>
+    <p><input placeholder="Add a note if you’d like" value="<%= @option.notes %>" type="textarea" name="option[notes]" id="option_notes"></p>
   </div>
 
-  <div class="form-tile">
-    <input type="submit" name="commit" value="+" data-disable-with="+">
+  <div class="tile">
+    <h1><input type="submit" name="commit" value="+" data-disable-with="+"></h1>
   </div>
 </form>
 
 <% if @options.count < 2 %>
-  <div class="tooltip">
-    <h1>ENTER AT LEAST TWO OPTIONS.</h1>
+  <div class="center">
+    <h2 class="tip">Add at least two options.</h2>
   </div>
 <% else %>
-  <h1><%= link_to "LAUNCH QUESTION", question_path(@question) %></h1>
+  <div class="center">
+    <h2 class="button"><%= link_to "Launch Question", question_path(@question) %></h2>
+  </div>
 <% end %>
