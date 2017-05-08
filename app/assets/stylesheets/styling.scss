@@ -76,6 +76,11 @@ label {
   cursor: inherit;
 }
 
+.title {
+  color: $white;
+  padding: 2em;
+  text-align: center;
+}
 .tile {
   background-color: $white;
   border-radius: .25em;
