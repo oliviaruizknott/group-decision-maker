@@ -1,11 +1,13 @@
 @import "settings";
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
 
+$black: #000000;
 $blue: #4990e2;
-$placeholder-gray: #cccccc;
-$white: white;
 $lightgreen: #b8e986;
 $orange: #FFB26F;
+$placeholder-gray: #cccccc;
+$white: white;
+
 $shadow: 0 0 1em 0 rgba(0,0,0,.5);
 
 body {
@@ -44,7 +46,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: black;
+  color: $black;
 }
 
 *:focus {
@@ -53,7 +55,7 @@ a:hover, a:focus {
 
 input {
   background-color: $white;
-  border: none;
+  border: 0;
   cursor: inherit;
   text-align: center;
   width: 100%;
@@ -115,12 +117,12 @@ label {
 }
 
 .clickable:hover, .clickable:focus {
-  color: black;
+  color: $black;
 }
 
 .button {
   background-color: $lightgreen;
-  border: none;
+  border: 0;
   border-radius: 100px;
   box-shadow: $shadow;
   color: inherit;
@@ -129,7 +131,7 @@ label {
   padding: 1em;
   text-align: center;
   text-transform: inherit;
-  transition: all 0.5s cubic-bezier(.25, .8, 0.25, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   width: auto;
 
   a {
@@ -137,7 +139,7 @@ label {
   }
 
   a:hover, a:focus {
-    color: black;
+    color: $black;
   }
 }
 
@@ -150,7 +152,7 @@ label {
 .tip {
   background-color: $placeholder-gray;
   box-shadow: $shadow;
-  font-size: .75em;
+  font-size: 0.75em;
   margin: 1em auto;
   padding: 1em;
   text-align: center;
@@ -167,19 +169,19 @@ label {
 }
 
 #please-no {
-  cursor: image-url('please_no.png') 10 10, default;
+  cursor: image-url("please_no.png") 10 10, default;
 }
 
 #rather-not {
-  cursor: image-url('rather_not.png') 10 10, default;
+  cursor: image-url("rather_not.png") 10 10, default;
 }
 
 #sure {
-  cursor: image-url('sure.png') 10 10, default;
+  cursor: image-url("sure.png") 10 10, default;
 }
 
 #please-yes {
-  cursor: image-url('please_yes.png') 10 10, default;
+  cursor: image-url("please_yes.png") 10 10, default;
 }
 
 
