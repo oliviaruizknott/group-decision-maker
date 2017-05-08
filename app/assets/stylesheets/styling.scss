@@ -5,6 +5,8 @@ $blue: #4990e2;
 $placeholder-gray: #cccccc;
 $white: white;
 $lightgreen: #b8e986;
+$orange: #FFB26F;
+$shadow: 0 0 1em 0 rgba(0,0,0,.5);
 
 body {
   background-color: $blue;
@@ -13,14 +15,14 @@ body {
 h1 {
   color: $blue;
   font-size: 1.5em;
-  margin-bottom: 0;
+  margin: .5em;
 }
 
 h2 {
   font-family: 'Space Mono', monospace;
   font-size: 1em;
   font-weight: bold;
-  margin-bottom: 0;
+  margin: .5em;
   text-transform: uppercase;
 }
 
@@ -32,11 +34,13 @@ h3 {
 p {
   color: gray;
   line-height: 1.25;
-  margin-bottom: 0;
+  margin: auto;
+  max-width: 75%;
 }
 
 a {
   color: $placeholder-gray;
+  text-transform: uppercase;
 }
 
 a:hover, a:focus {
@@ -71,18 +75,18 @@ label {
 
 .tile {
   background-color: $white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: $shadow;
   border-radius: .25em;
   margin: 1em;
-  padding: 2em;
+  padding: 1em;
   text-align: center;
 }
 
 .topbar {
   background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: $shadow;
   left: 0;
-  padding: 2em;
+  padding: 1.5em;
   position: fixed;
   text-align: center;
   width: 100%;
@@ -93,6 +97,9 @@ label {
   margin: 10em;
 }
 
+.spacer-small {
+  margin: 7.5em;
+}
 
 .center {
   text-align: center;
@@ -115,14 +122,14 @@ label {
   background-color: $lightgreen;
   border: none;
   border-radius: 100px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: $shadow;
   color: inherit;
   font-size: 1em;
   margin: 1em;
   padding: 1em;
   text-align: center;
   text-transform: inherit;
-  transition: all 0.3s cubic-bezier(.25, .8, 0.25, 1);
+  transition: all 0.5s cubic-bezier(.25, .8, 0.25, 1);
   width: auto;
 
   a {
@@ -142,7 +149,7 @@ label {
 
 .tip {
   background-color: $placeholder-gray;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: $shadow;
   font-size: .75em;
   margin: 1em auto;
   padding: 1em;
@@ -153,6 +160,10 @@ label {
 .response {
   border-top: 1px solid $placeholder-gray;
   padding: 2em;
+}
+
+#score {
+  color: $orange;
 }
 
 #please-no {

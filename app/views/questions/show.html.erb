@@ -26,9 +26,5 @@
 
   <h2 onclick="copyToClipboard('#url')" class="clickable">Copy link to question</h2>
   <p class="hidden" id="url"><%= request.original_url %></p>
-  <!-- <h2>group-decision-maker.herokuapp.com/<%= params[:id] %></h2> -->
-
-  <br>
-
   <h2><%= link_to "Close question", question_results_path(@question) %></h2>
 </div>

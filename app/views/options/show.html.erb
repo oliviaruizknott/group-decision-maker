@@ -1,11 +1,11 @@
 <div class="topbar small-12 medium-8 large-6 small-centered columns row">
-  <h2>QUESTION</h2>
-  <h1><%= @question.text %></h1>
+  <h2><%= @question.text %></h2>
 </div>
 
-<div class="spacer"></div>
+<div class="spacer-small"></div>
 
 <div class="tile">
+  <h2>Option:</h2>
   <h1><%= @option.text %></h1>
   <% if @option.notes %>
     <p><%= @option.notes %></p>

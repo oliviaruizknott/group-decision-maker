@@ -1,0 +1,15 @@
+<div class="topbar small-12 medium-8 large-6 small-centered columns row">
+  <h2>QUESTION</h2>
+  <h1><%= @question.text %></h1>
+</div>
+
+<div class="spacer"></div>
+
+<div class="tile">
+  <h1>Thank you! <br> Your response has been recorded.</h1>
+  <p>Once the question-maker closes this question, you can refresh this page to see the results.</p>
+  <br>
+  <p>In the meantime, you probably just saved you and your friends something like 45 minutes of boring logistical banter. You can now spend that time discussing the more meaningful questions of life, or whatever else you enjoy.</p>
+  <br>
+  <h2><%= link_to "Return to Question", question_path(@question) %></h2>
+</div>
