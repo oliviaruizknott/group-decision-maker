@@ -3,6 +3,7 @@
 
 $black: #000000;
 $blue: #4990e2;
+$gray: #808080;
 $lightgreen: #b8e986;
 $orange: #FFB26F;
 $placeholder-gray: #cccccc;
@@ -17,14 +18,14 @@ body {
 h1 {
   color: $blue;
   font-size: 1.5em;
-  margin: .5em;
+  margin: 0.5em;
 }
 
 h2 {
   font-family: 'Space Mono', monospace;
   font-size: 1em;
   font-weight: bold;
-  margin: .5em;
+  margin: 0.5em;
   text-transform: uppercase;
 }
 
@@ -34,7 +35,7 @@ h3 {
 }
 
 p {
-  color: gray;
+  color: $gray;
   line-height: 1.25;
   margin: auto;
   max-width: 75%;
@@ -62,7 +63,7 @@ input {
 }
 
 input::placeholder {
-  color: $placeholder-gray
+  color: $placeholder-gray;
 }
 
 input::-webkit-outer-spin-button,
@@ -77,8 +78,8 @@ label {
 
 .tile {
   background-color: $white;
-  box-shadow: $shadow;
   border-radius: .25em;
+  box-shadow: $shadow;
   margin: 1em;
   padding: 1em;
   text-align: center;
@@ -112,8 +113,8 @@ label {
 }
 
 .clickable {
-  cursor: pointer;
   color: $placeholder-gray;
+  cursor: pointer;
 }
 
 .clickable:hover, .clickable:focus {
