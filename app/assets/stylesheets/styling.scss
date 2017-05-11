@@ -10,6 +10,7 @@ $placeholder-gray: #cccccc;
 $white: white;
 
 $shadow: 0 0 1em 0 rgba(0,0,0,.5);
+$transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 
 body {
   background-color: $blue;
@@ -38,12 +39,14 @@ p {
   color: $gray;
   line-height: 1.25;
   margin: auto;
+  margin-bottom: 0.5em;
   max-width: 75%;
 }
 
 a {
   color: $placeholder-gray;
   text-transform: uppercase;
+  transition: $transition;
 }
 
 a:hover, a:focus {
@@ -137,7 +140,7 @@ label {
   padding: 1em;
   text-align: center;
   text-transform: inherit;
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: $transition;
   width: auto;
 
   a {
@@ -190,7 +193,5 @@ label {
   cursor: image-url("please_yes.png") 10 10, default;
 }
 
-
 #app {
-  display: none;
 }

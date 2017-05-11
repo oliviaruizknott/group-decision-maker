@@ -19,17 +19,23 @@ class OptionsController < ApplicationController
     ]
   end
 
+  def new
+    @question = Question.find(params[:question_id])
+    @options = @question.options
+    @option = Option.new
+  end
+
   def create
     @question = Question.find(params[:question_id])
     @option = Option.new(option_params_create)
     @option.question = @question
 
     if @option.save
-      redirect_to question_options_path(@question)
+      redirect_to new_question_option_path(@question)
     else
       flash.now[:alert] = @option.errors.full_messages.to_sentence
       @options = @question.options
-      render :index
+      render :new
     end
   end
 

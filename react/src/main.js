@@ -1,10 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import OptionList from './containers/OptionList';
 
 $(function() {
-  ReactDOM.render(
-    <p>(React components can go in this div.)</p>,
-    document.getElementById('app')
-  );
+  if (document.getElementById('options-new')){
+    ReactDOM.render(
+      <OptionList />,
+      document.getElementById('options-new')
+    );
+  }
 });
