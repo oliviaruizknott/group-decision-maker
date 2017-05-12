@@ -61,27 +61,14 @@ class OptionList extends Component {
       )
     })
 
-    let button
-    if (this.state.options.length < 2) {
-      button =
-        <div className="center">
-          <h2 className="tip">Add at least two options.</h2>
-        </div>
-    } else {
-      button =
-        <div className="center">
-          <h2 className="button"><a href={"/questions/" + this.state.question.id}>Launch Question</a></h2>
-        </div>
-    }
-
     return(
       <div>
         {optionTiles}
         <OptionForm
           questionId={this.state.question.id}
+          optionLength={this.state.options.length}
           addNewOption={this.addNewOption}
         />
-        {button}
       </div>
     );
   }

@@ -11,6 +11,7 @@ class OptionForm extends Component {
     this.handleTextEntry = this.handleTextEntry.bind(this);
     this.handleNotesEntry = this.handleNotesEntry.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleLaunchQuestion = this.handleLaunchQuestion.bind(this);
   }
 
   handleTextEntry(event) {
@@ -40,7 +41,31 @@ class OptionForm extends Component {
     }
   }
 
+  handleLaunchQuestion(event) {
+    if (this.state.optionText !== '') {
+      let newOptionData = {
+        question_id: this.props.questionId,
+        text: this.state.optionText,
+        notes: this.state.optionNotes
+      };
+      this.props.addNewOption(newOptionData);
+    }
+  }
+
   render(){
+    let button;
+    if (this.props.optionLength < 2) {
+      button =
+        <div className="center">
+          <h2 className="tip">Add at least two options.</h2>
+        </div>
+    } else {
+      button =
+        <div className="center">
+          <h2 className="button" onClick={this.handleLaunchQuestion}><a href={"/questions/" + this.props.questionId}>Launch Question</a></h2>
+        </div>
+    }
+
     return(
       <div>
         <form onSubmit={this.handleFormSubmit}>
@@ -76,6 +101,7 @@ class OptionForm extends Component {
             </h1>
           </div>
         </form>
+        {button}
       </div>
     );
   }
