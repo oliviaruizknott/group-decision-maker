@@ -14,6 +14,7 @@ module.exports = function(config) {
       '../node_modules/babel-polyfill/dist/polyfill.js',
       // entry file for Webpack
       'test/testHelper.js'
+      '../node_modules/whatwg-fetch/fetch.js'
     ],
 
     // before serving test/testHelper.js to the browser
