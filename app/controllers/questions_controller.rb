@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params_create)
 
     if @question.save
-      redirect_to question_options_path(@question.id)
+      redirect_to new_question_option_path(@question.id)
     else
       flash.now[:alert] = @question.errors.full_messages.to_sentence
       render :new
