@@ -7,6 +7,11 @@ class Api::V1::OptionsController < ApplicationController
     render json: @options
   end
 
+  def show
+    @option = Option.find(params[:id])
+    render json: @option
+  end
+
   def create
     body = request.body.read
     parsed = JSON.parse(body)

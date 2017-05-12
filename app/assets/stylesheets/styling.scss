@@ -168,9 +168,25 @@ label {
   width: 50%;
 }
 
+.option-text {
+  margin-bottom: 2em;
+}
+
 .response {
   border-top: 1px solid $placeholder-gray;
   padding: 2em;
+}
+
+.response:hover {
+  color: $blue;
+}
+
+.response:active {
+  color: $blue;
+}
+
+.selected {
+  color: $blue;
 }
 
 #score {

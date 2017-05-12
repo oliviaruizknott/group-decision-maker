@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :questions, only: [:index, :show] do
         resources :options, only: [:index, :create]
       end
+      resources :options, only: [:show]
     end
   end
 end
