@@ -57,7 +57,7 @@ class OptionForm extends Component {
     if (this.props.optionLength < 2) {
       button =
         <div className="center">
-          <h2 className="tip">Add at least two options.</h2>
+          <h2 className="tip">Add at least two options</h2>
         </div>
     } else {
       button =

@@ -25,6 +25,10 @@ class Question < ApplicationRecord
   def high_score
     result_details.values.max
   end
+
+  def last_option
+    options.last.id
+  end
 end
 
 # This gives only one winner:

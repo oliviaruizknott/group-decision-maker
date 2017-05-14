@@ -1,5 +1,8 @@
 @import "settings";
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua:400,600|Montserrat:400,500,600,700');
 
 $black: #000000;
 $blue: #4990e2;
@@ -12,18 +15,25 @@ $white: white;
 $shadow: 0 0 1em 0 rgba(0,0,0,.5);
 $transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+$allcaps: 'Space Mono', monospace;
+// $main: sans-serif;
+// $allcaps: 'Montserrat', sans-serif;
+//$main: 'Montserrat', sans-serif;
+
 body {
   background-color: $blue;
+  // font-family: $main;
 }
 
 h1 {
   color: $blue;
   font-size: 1.5em;
   margin: 0.5em;
+  // font-family: $main;
 }
 
 h2 {
-  font-family: 'Space Mono', monospace;
+  font-family: $allcaps;
   font-size: 1em;
   font-weight: bold;
   margin: 0.5em;
@@ -31,6 +41,7 @@ h2 {
 }
 
 h3 {
+  // font-family: $main;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -174,8 +185,20 @@ label {
 
 .response {
   border-top: 1px solid $placeholder-gray;
-  padding: 2em;
+  padding: 1.5em;
 }
+
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px) {
+    .response {
+      border-top: 1px solid $placeholder-gray;
+      padding: 1em;
+    }
+  }
+
+
 
 .response:hover {
   color: $blue;
@@ -187,6 +210,13 @@ label {
 
 .selected {
   color: $blue;
+}
+
+.float {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 1em;
 }
 
 #score {

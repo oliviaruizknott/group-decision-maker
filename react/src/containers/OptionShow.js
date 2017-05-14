@@ -5,26 +5,33 @@ class OptionShow extends Component {
   constructor(props){
     super(props);
     this.state = {
+      optionId: parseInt(document.getElementById('option-show').dataset.id),
+      questionId: null,
+      nextOptionId: null,
       optionText: null,
       optionNotes: null,
       selectedResponseId: null,
       selectedResponseScore: null
     };
     this.handleSelectedResponse = this.handleSelectedResponse.bind(this);
+    this.addNewResponse = this.addNewResponse.bind(this);
+    this.handleNext = this.handleNext.bind(this);
   }
 
   componentDidMount(){
-    let optionShow = document.getElementById('option-show');
-    let optionId = optionShow.dataset.id;
-    fetch(`/api/v1/options/${optionId}`)
+    fetch(`/api/v1/options/${this.state.optionId}`)
     .then(response => {
       let parsed = response.json();
       return parsed;
     }).then(option => {
       this.setState({
+        questionId: option.question_id,
         optionText: option.text,
-        optionNotes: option.notes
+        optionNotes: option.notes,
       });
+      if (option.next_option !== null) {
+        this.setState({ nextOptionId: option.next_option.id });
+      }
     });
   }
 
@@ -36,6 +43,31 @@ class OptionShow extends Component {
       this.setState({ selectedResponseId: responseId });
       this.setState({ selectedResponseScore: responseScore })
     }
+  }
+
+  addNewResponse(newResponse) {
+    fetch(`/api/v1/options/${this.state.optionId}/responses`, {
+      body: JSON.stringify(newResponse),
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST'
+    })
+    .then(response => {
+      let parsed = response.json();
+      return parsed;
+    }).then(message => {
+      if (message.message == "It worked!") {
+        console.log("It worked!");
+      }
+    });
+  }
+
+  handleNext(event) {
+    let newResponseData = {
+      score: this.state.selectedResponseScore,
+      option_id: this.state.optionId
+    };
+    this.addNewResponse(newResponseData);
   }
 
   render(){
@@ -65,11 +97,37 @@ class OptionShow extends Component {
       )
     })
 
+    let link
+    let linkText
+
+    if (this.state.nextOptionId === null) {
+      link = `/questions/${this.state.questionId}/thanks`
+      linkText = "Finish"
+    } else {
+      link = `/options/${this.state.nextOptionId}`;
+      linkText = "Next Option";
+    }
+
+
+    let button;
+    if (this.state.selectedResponseId !== null) {
+      button =
+        <div className="center float">
+          <h2 className="button" onClick={this.handleNext}><a href={link}>{linkText}</a></h2>
+        </div>
+    }
+
     return(
-      <div className="tile">
-        <h2>Option</h2>
-        <h1 className="option-text">{this.state.optionText}</h1>
-        {responses}
+      <div>
+        <div className="tile">
+          <div className="option-text">
+            <h1>{this.state.optionText}</h1>
+            <p>{this.state.optionNotes}</p>
+          </div>
+          {responses}
+        </div>
+        {button}
+        <div className="spacer-small"></div>
       </div>
     );
   }

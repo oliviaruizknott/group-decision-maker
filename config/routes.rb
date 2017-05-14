@@ -20,7 +20,7 @@ Rails.application.routes.draw do
         resources :options, only: [:index, :create]
       end
       resources :options, only: [:show] do
-        resources :responses, only: [:index]
+        resources :responses, only: [:index, :create]
       end
     end
   end
