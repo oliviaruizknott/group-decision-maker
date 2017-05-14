@@ -9,7 +9,7 @@ $(function() {
   if (document.getElementById('options-new')){
     ReactDOM.render(
       <OptionList />,
-      document.getElementById('options-new');
+      document.getElementById('options-new')
     );
   }
 });
@@ -17,7 +17,7 @@ $(function() {
   if (document.getElementById('option-show')){
     ReactDOM.render(
       <OptionShow />,
-      document.getElementById('option-show');
+      document.getElementById('option-show')
     );
   }
 });
