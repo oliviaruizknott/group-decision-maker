@@ -38,7 +38,7 @@ class OptionShow extends Component {
   handleSelectedResponse(responseId, responseScore) {
     if (this.state.selectedResponseId === responseId) {
       this.setState({ selectedResponseId: null });
-      this.setState({ selectedResponseScore: null })
+      this.setState({ selectedResponseScore: null });
     } else {
       this.setState({ selectedResponseId: responseId });
       this.setState({ selectedResponseScore: responseScore });
