@@ -6,6 +6,7 @@ class OptionList extends Component {
   constructor(props){
     super(props);
     this.state = {
+      questionId: parseInt(document.getElementById('options-new').dataset.id),
       question: [],
       options: [],
       messages: []
@@ -13,9 +14,7 @@ class OptionList extends Component {
   }
 
   componentDidMount(){
-    let optionsNew = document.getElementById('options-new');
-    let questionId = optionsNew.dataset.id;
-    fetch(`/api/v1/questions/${questionId}`)
+    fetch(`/api/v1/questions/${this.state.questionId}`)
     .then(response => {
       let parsed = response.json();
       return parsed;
@@ -29,9 +28,7 @@ class OptionList extends Component {
   }
 
   addNewOption(newOption) {
-    let optionsNew = document.getElementById('options-new');
-    let questionId = optionsNew.dataset.id;
-    fetch(`/api/v1/questions/${questionId}/options`, {
+    fetch(`/api/v1/questions/${this.state.questionId}/options`, {
       body: JSON.stringify(newOption),
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
