@@ -41,7 +41,7 @@ class OptionShow extends Component {
       this.setState({ selectedResponseScore: null })
     } else {
       this.setState({ selectedResponseId: responseId });
-      this.setState({ selectedResponseScore: responseScore })
+      this.setState({ selectedResponseScore: responseScore });
     }
   }
 
@@ -71,9 +71,9 @@ class OptionShow extends Component {
   }
 
   render(){
-    let className
-    let responseObject = {"please-no": ["Please no!", -3], "rather-not": ["I’d rather not.", -1], "sure": ["Sure!", 1], "please-yes": ["Please yes!!!", 2]}
-    let responseArray = Object.keys(responseObject)
+    let className;
+    let responseObject = {"please-no": ["Please no!", -3], "rather-not": ["I’d rather not.", -1], "sure": ["Sure!", 1], "please-yes": ["Please yes!!!", 2]};
+    let responseArray = Object.keys(responseObject);
 
     let responses = responseArray.map((responseKey) => {
       if (responseKey === this.state.selectedResponseId) {
