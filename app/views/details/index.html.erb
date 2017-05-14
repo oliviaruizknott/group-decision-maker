@@ -1,20 +1,27 @@
-<div class="topbar small-12 medium-8 large-6 small-centered columns row">
+<div id="question-topbar" class="topbar small-12 medium-8 large-6 small-centered columns row">
   <h2>Detailed Question Results</h2>
   <h1><%= @question.text %></h1>
 </div>
 
-<div class="spacer"></div>
+<script>
+  $(document).ready(function() {
+    let contentPlacement = $('#question-topbar').position().top + $('#question-topbar').outerHeight();
+    $('#content').css('margin-top', contentPlacement+20);
+  });
+</script>
 
-<% @options.each do |option| %>
-  <div class="tile">
-    <% if option.score == @question.high_score %>
-      <h2>Winner</h2>
-    <% end %>
-    <h1><%= option.text %></h1>
-    <h2 id="score">Score: <%= option.score %></h2>
+<div id="content">
+  <% @options.each do |option| %>
+    <div class="tile">
+      <% if option.score == @question.high_score %>
+        <h2>Winner</h2>
+      <% end %>
+      <h1><%= option.text %></h1>
+      <h2 id="score">Score: <%= option.score %></h2>
+    </div>
+  <% end %>
+
+  <div class="center">
+    <h2 class="button"><%= link_to "New Question", new_question_path %></h2>
   </div>
-<% end %>
-
-<div class="center">
-  <h2 class="button"><%= link_to "New Question", new_question_path %></h2>
 </div>
