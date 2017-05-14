@@ -1,8 +1,21 @@
-<h1>All Questions</h1>
-<p>(Though you should never need to see this page ... ) Blah Blah Blah</p>
+<div id="question-topbar" class="topbar small-12 medium-8 large-6 small-centered columns row">
+  <h2>All Questions</h2>
+</div>
 
-<ul>
+<script>
+  $(document).ready(function() {
+    let contentPlacement = $('#question-topbar').position().top + $('#question-topbar').outerHeight();
+    $('#content').css('margin-top', contentPlacement+20);
+  });
+</script>
+
+<div id="content">
   <% @questions.each do |question| %>
-    <li><%= question.text %> (<%= question.id %>): <%= question.status.upcase %></li>
+    <div class="tile">
+      <a href='/questions/<%= question.id %>' style="text-transform: none;">
+        <h1><%= question.text %></h1>
+        <h2>ID: <%= question.id %> | STATUS: <%= question.status.upcase %></h2>
+      </a>
+    </div>
   <% end %>
-</ul>
+</div>
