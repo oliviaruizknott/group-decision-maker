@@ -1,10 +1,4 @@
 class OptionsController < ApplicationController
-  def index
-    @question = Question.find(params[:question_id])
-    @options = @question.options
-    @option = Option.new
-  end
-
   def show
     @option = Option.find(params[:id])
     @question = @option.question
@@ -23,6 +17,10 @@ class OptionsController < ApplicationController
     @question = Question.find(params[:question_id])
     @options = @question.options
     @option = Option.new
+
+    if @question.status == "closed"
+      redirect_to question_results_path(@question)
+    end
   end
 
   def create

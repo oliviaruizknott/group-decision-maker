@@ -8,16 +8,16 @@ Rails.application.routes.draw do
     resources :thanks, only: [:index]
   end
 
-  resources :options, only: [:show, :edit, :update, :destroy] do
+  resources :options, only: [:show] do
     resources :responses, only: [:new, :create]
   end
 
-  resources :responses, only: [:show, :edit, :update, :destroy]
+  resources :responses, only: [:show]
 
   namespace :api do
     namespace :v1 do
       resources :questions, only: [:index, :show] do
-        resources :options, only: [:index, :create]
+        resources :options, only: [:create]
       end
       resources :options, only: [:show] do
         resources :responses, only: [:index, :create]
