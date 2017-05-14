@@ -7,7 +7,8 @@ class OptionShow extends Component {
     this.state = {
       optionText: null,
       optionNotes: null,
-      selectedResponseId: null
+      selectedResponseId: null,
+      selectedResponseScore: null
     };
     this.handleSelectedResponse = this.handleSelectedResponse.bind(this);
   }
@@ -27,17 +28,19 @@ class OptionShow extends Component {
     });
   }
 
-  handleSelectedResponse(responseId) {
+  handleSelectedResponse(responseId, responseScore) {
     if (this.state.selectedResponseId === responseId) {
       this.setState({ selectedResponseId: null });
+      this.setState({ selectedResponseScore: null })
     } else {
       this.setState({ selectedResponseId: responseId });
+      this.setState({ selectedResponseScore: responseScore })
     }
   }
 
   render(){
     let className
-    let responseObject = {"please-no": "Please no!", "rather-not": "I’d rather not.", "sure": "Sure!", "please-yes": "Please yes!!!"}
+    let responseObject = {"please-no": ["Please no!", -3], "rather-not": ["I’d rather not.", -1], "sure": ["Sure!", 1], "please-yes": ["Please yes!!!", 2]}
     let responseArray = Object.keys(responseObject)
 
     let responses = responseArray.map((responseKey) => {
@@ -48,14 +51,14 @@ class OptionShow extends Component {
       }
 
       let handleClick = () => {
-        this.handleSelectedResponse(responseKey);
+        this.handleSelectedResponse(responseKey, responseObject[responseKey][1]);
       };
 
       return(
         <ResponseBox
           key={responseKey}
           id={responseKey}
-          text={responseObject[responseKey]}
+          text={responseObject[responseKey][0]}
           handleClick={handleClick}
           className={className}
         />
