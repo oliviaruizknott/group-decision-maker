@@ -11,11 +11,11 @@
 
 <div id="content">
   <% @questions.each do |question| %>
-    <div class="tile">
-      <a href='/questions/<%= question.id %>' style="text-transform: none;">
+    <a href='/questions/<%= question.id %>' style="text-transform: none;">
+      <div class="tile">
         <h1><%= question.text %></h1>
-        <h2>ID: <%= question.id %> | STATUS: <%= question.status.upcase %></h2>
-      </a>
-    </div>
+        <h2 style="color: black;">ID: <%= question.id %> | STATUS: <%= question.status.upcase %></h2>
+      </div>
+    </a>
   <% end %>
 </div>

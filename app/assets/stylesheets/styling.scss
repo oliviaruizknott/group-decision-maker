@@ -49,10 +49,15 @@ a {
   color: $placeholder-gray;
   text-transform: uppercase;
   transition: $transition;
+
 }
 
 a:hover, a:focus {
   color: $black;
+
+  .tile {
+    box-shadow: none;
+  }
 }
 
 *:focus {
@@ -94,6 +99,7 @@ label {
   margin: 1em;
   padding: 1em 2em;
   text-align: center;
+  transition: $transition;
 
   .button {
     box-shadow: 0 0 .5em 0 rgba(0,0,0,.4)
