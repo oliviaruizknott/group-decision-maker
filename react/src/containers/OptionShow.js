@@ -127,7 +127,6 @@ class OptionShow extends Component {
           {responses}
         </div>
         {button}
-        <div className="spacer-small"></div>
       </div>
     );
   }
